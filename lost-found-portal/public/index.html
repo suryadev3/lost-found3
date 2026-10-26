@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lost & Found Portal | Campus Item Recovery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
+            accent: { 500: '#10b981', 600: '#059669' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+  <!-- Navbar -->
+  <nav id="navbar" class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('home')">
+          <div class="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-white text-xl">
+            <i class="fas fa-search-location"></i>
+          </div>
+          <div>
+            <h1 class="font-bold text-lg text-slate-900 leading-tight">Lost & Found</h1>
+            <p class="text-xs text-slate-500 -mt-0.5">AI-Powered Recovery</p>
+          </div>
+        </div>
+
+        <div class="hidden md:flex items-center gap-1" id="nav-links">
+          <!-- filled by JS -->
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div id="user-menu" class="hidden items-center gap-3">
+            <span id="user-name" class="text-sm font-medium text-slate-700 hidden sm:inline"></span>
+            <button onclick="logout()" class="text-sm text-red-600 hover:text-red-700 font-medium">
+              <i class="fas fa-sign-out-alt mr-1"></i> Logout
+            </button>
+          </div>
+          <div id="auth-buttons" class="flex gap-2">
+            <button onclick="showPage('login')" class="px-4 py-2 text-sm font-medium text-primary-700 hover:bg-primary-50 rounded-lg transition">Login</button>
+            <button onclick="showPage('register')" class="px-4 py-2 text-sm font-medium bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition">Register</button>
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-3 space-y-1">
+      <!-- filled by JS -->
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- pages injected here -->
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden transform transition-all duration-300 translate-y-4 opacity-0">
+    <div class="bg-slate-900 text-white px-5 py-3 rounded-xl shadow-lg flex items-center gap-3 max-w-sm">
+      <i id="toast-icon" class="fas fa-check-circle text-green-400"></i>
+      <span id="toast-msg" class="text-sm"></span>
+    </div>
+  </div>
+
+  <!-- Modal for matches / details -->
+  <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center rounded-t-2xl">
+        <h3 id="modal-title" class="text-lg font-bold text-slate-900">Details</h3>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 text-xl"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="modal-body" class="p-6"></div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

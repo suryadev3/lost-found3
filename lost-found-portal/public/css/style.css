@@ -1,0 +1,83 @@
+/* Custom styles beyond Tailwind */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.card {
+  @apply bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow;
+}
+
+.btn-primary {
+  @apply bg-primary-600 hover:bg-primary-700 text-white font-medium px-5 py-2.5 rounded-xl transition disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-5 py-2.5 rounded-xl transition;
+}
+
+.btn-danger {
+  @apply bg-red-50 hover:bg-red-100 text-red-700 font-medium px-4 py-2 rounded-xl transition;
+}
+
+.input {
+  @apply w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition;
+}
+
+.label {
+  @apply block text-sm font-medium text-slate-700 mb-1.5;
+}
+
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-lost { @apply bg-red-100 text-red-800; }
+.badge-found { @apply bg-emerald-100 text-emerald-800; }
+.badge-open { @apply bg-blue-100 text-blue-800; }
+.badge-matched { @apply bg-amber-100 text-amber-800; }
+.badge-returned { @apply bg-green-100 text-green-800; }
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid #e2e8f0;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Score bar */
+.score-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+.score-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  transition: width 0.4s ease;
+}
+
+/* Report card image */
+.report-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  background: #f1f5f9;
+}
+
+/* Smooth page transitions */
+.page-enter {
+  animation: fadeIn 0.25s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
